@@ -109,6 +109,10 @@
         state: link
       notify:
         - Restart nginx
+    - name: Add Semaphore SSH key to server for deploy user 
+      authorized_key:
+        user: deploy
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC8SJRhCsbTek0/arIwHB/wQwc8/MTbS2ytCCjOCojS/9k++x6O3cG4OSf+qRN3TyLpUE5Apdz9DZgpRp6foYTPZIYVqQMDTnPjsOn3PIglpiAQqcshSbPPcXuJWiZKF2a4w/UAPQ/KelYlGPXVxv0a0GYaOQ2KJgZRNVSQVbaqrr5RvUd4uRQ1IX4B4KPN0+gEpkj4cqCre4bnOSWgaKSEEp1NRWouGxo1v2aAsWS2+alPQ1IEBhM9tdK6lGdfEvaGhcgBxOI8M818+SMStg3SYPXu2KaZPrsijv1n5vYwkQ+xNorTJovuJ+Gf2PamffzvJT+DYq1FnpyPRWIqTSwKGbV7JhoDDMTgBQL8eTXkEVBSsZ6CDmoKAHtM2EPjmWUYcUJimTPId7bwzQU9iTmCUWdADTB81VVe/5Uy+XC8STeL/yOE6NyYaToSl7jQ6j3jv2Xromtg6JzpRErdkPMzArsEHXgwNE4Lpq4hDeKRC6CDYXya4PcKkyqI6hu7Yb86r/IZ4Ei49lo3f3iOyHLlaSuvZ/1aAI4Hb0ifbl64XiLa9/yhWWIz9yZhZw3COGGq6ISf0X0zKgeCFPiI8aar5yQ4l0Gl9sn2TQoet4rA83Zd5lOtpCuAh1AGzeSOjqTSlpRGi13bfR5Cfefn8zvCrMtkGi4A53levhMs8DEPrw== radoslaw.stolarski@polcode.net"
   handlers:
     - name: Restart nginx
       service: name=nginx state=restarted
