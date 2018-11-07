@@ -1,15 +1,5 @@
 ---
-- hosts: rails
-  remote_user: root
-  become: yes
-  roles:
-    - update_packages
-    - add_deploy_user
-    - ruby_installation
-    - nginx_installation
-  handlers:
-    - name: Restart nginx
-      service: name=nginx state=restarted
+- import_playbook: webservers.yml
 
 
     
